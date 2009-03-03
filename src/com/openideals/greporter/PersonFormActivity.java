@@ -11,7 +11,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.openideals.inaugreport;
+package com.openideals.greporter;
 
 import android.app.Activity;
 import android.app.ProgressDialog;
@@ -30,7 +30,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.openideals.android.db.PreferenceDB;
-import com.openideals.android.geo.LocationFinderActivity;
 import com.openideals.android.ui.HorizontalSlider;
 import com.openideals.android.ui.HorizontalSlider.OnProgressChangeListener;
 

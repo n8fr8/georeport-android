@@ -11,7 +11,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.openideals.inaugreport;
+package com.openideals.greporter;
 
 
 import java.io.File;
@@ -29,7 +29,7 @@ import com.openideals.android.net.HttpManager;
 /*
  * This class handles all of the REST calls into the back-end reporting system
  */
-public class Reporter implements InaugReportConstants, Runnable
+public class Reporter implements GReporterConstants, Runnable
 {
 	private final static String TAG = "Reporter";
 	
@@ -77,9 +77,9 @@ public class Reporter implements InaugReportConstants, Runnable
 			
 			Properties params = new Properties();
 			params.put("latlon", latlon);
-			locationName = HttpManager.doGet (TWITTERVISION_LOCATION_LOOKUP_URL, params);
+			//locationName = HttpManager.doGet (TWITTERVISION_LOCATION_LOOKUP_URL, params);
 			
-			Log.i(TAG, "getLocationName resp: " + locationName);
+			//Log.i(TAG, "getLocationName resp: " + locationName);
 			
 		}
 		catch (Exception e)
@@ -180,7 +180,7 @@ public class Reporter implements InaugReportConstants, Runnable
 	      
 	     Person person = getPerson();
 	       
-		String url = InaugReportConstants.REPORTS_URL;
+		String url = GReporterConstants.REPORT_SUBMIT_URL;
 		
 		NumberFormat f = NumberFormat.getInstance();
 		 if (f instanceof DecimalFormat) {

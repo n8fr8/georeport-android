@@ -11,53 +11,66 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.openideals.inaugreport;
+package com.openideals.greporter;
+
+import java.io.File;
 
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.location.Location;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.CheckBox;
-import android.widget.Spinner;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.openideals.android.geo.LocationFinderActivity;
-import com.openideals.android.ui.HorizontalSlider;
-import com.openideals.android.ui.HorizontalSlider.OnProgressChangeListener;
+import com.openideals.android.ui.ImageCaptureActivity;
 
 /*
  * This is the user interface activity for the report form
  */
-public class ReportFormActivity extends Activity implements OnClickListener, Runnable
+public class PhotoFormActivity extends Activity implements OnClickListener, Runnable
 {
 
 	private final String TAG = "reportForm";
 	
 	private ProgressDialog progressDialog = null;
 	
+	private String currentPhotoPath = null;
+	
     /** Called when the activity is first created. */
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setTheme(android.R.style.Theme_Black_NoTitleBar);
-        setContentView(R.layout.reportform); 
        
+        currentPhotoPath = this.getIntent().getStringExtra("photofile");
+        //setTheme(android.R.style.Them);
+
+	    
+        
+        setContentView(R.layout.reportphotoform); 
+       
+        ((Button)findViewById(R.id.btnTakePicture)).setOnClickListener(this);
+		
       ((Button)findViewById(R.id.btnReportFormSubmit)).setOnClickListener(this);
       ((Button)findViewById(R.id.btnReportFormCancel)).setOnClickListener(this);
       
-      
+      if (currentPhotoPath != null)
+      {
+    	  Toast.makeText(getBaseContext(), "Ready to send photo: " + currentPhotoPath, Toast.LENGTH_LONG).show();
+    	  
+    	  ((ImageView)findViewById(R.id.previewphoto)).setImageURI(Uri.parse(currentPhotoPath));
+    	  
+    	  
+      }
     }
-    
-   
-    
+  
     
 
 	@Override
@@ -65,19 +78,25 @@ public class ReportFormActivity extends Activity implements OnClickListener, Run
 		
 		if (v.getId()==R.id.btnReportFormSubmit)
 		{
-			progressDialog = ProgressDialog.show(ReportFormActivity.this,
+			progressDialog = ProgressDialog.show(PhotoFormActivity.this,
 				      "Submitting Report",
 				      "Please wait...",
-				      true);
+				      true, true);
+			
 				
 			Handler handler = new Handler();
 			
 			handler.postDelayed(this, 1000);
 			
+			
 		}
 		else if (v.getId()==R.id.btnReportFormCancel)
 		{
 			showMain ();
+		}
+		else if (v.getId()==R.id.btnTakePicture)
+		{
+			takePicture();
 		}
 	}
 	
@@ -90,29 +109,47 @@ public class ReportFormActivity extends Activity implements OnClickListener, Run
 		
 	}
 	
+	private void takePicture ()
+	{
+
+		Intent iMain = new Intent(this, ImageCaptureActivity.class);
+         
+         startActivity(iMain);
+	}
+	
 	private void submitForm ()
     {
-    	try
+		if (currentPhotoPath == null)
+		{
+			 Toast.makeText(getBaseContext(), "Please take a picture first!", Toast.LENGTH_LONG).show();
+
+			 if (progressDialog != null)
+	 	    	  progressDialog.dismiss();
+		}
+		else
+		{
+		try
         {
     	   Log.i(TAG, "submitting form...");
     	   
  	       
- 	       String reportTitle = ((TextView)findViewById(R.id.entryTitle)).getText().toString();
- 	       String reportText = ((TextView)findViewById(R.id.entryReport)).getText().toString();
+ 	       String caption = ((TextView)findViewById(R.id.entryCaption)).getText().toString();
  	       
+ 	       String photoPath = currentPhotoPath;
  	       
- 	       
- 	       boolean reportAccepted = Reporter.submitTextReport(reportTitle, reportText);
+ 	       boolean reportAccepted = Reporter.submitPhotoReport(caption, photoPath);
  	       
  	       if (progressDialog != null)
  	    	  progressDialog.dismiss();
  	       
  	       if (reportAccepted)
  	       {
- 	    	   Toast.makeText(getBaseContext(), "Thank you. Your report has been accepted!", Toast.LENGTH_LONG).show();
+ 	    	   Toast.makeText(getBaseContext(), "Thank you. Your photo report has been accepted!", Toast.LENGTH_LONG).show();
 
- 	    	   showMain();
+ 	    	  showMain();
  	    	   
+ 	    	  currentPhotoPath = null;
+ 	    	  
  	       }
  	       else
  	       {
@@ -124,9 +161,9 @@ public class ReportFormActivity extends Activity implements OnClickListener, Run
         {
      	   e.printStackTrace();
         }
+		}
     }
 
-	
 	
 	private void showMain ()
 	{

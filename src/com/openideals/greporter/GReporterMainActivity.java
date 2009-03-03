@@ -1,7 +1,6 @@
-package com.openideals.inaugreport;
+package com.openideals.greporter;
 
 import com.openideals.android.db.PreferenceDB;
-import com.openideals.android.geo.LocationFinderActivity;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -13,7 +12,7 @@ import android.util.Log;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-public class InaugReportMainActivity extends Activity {
+public class GReporterMainActivity extends Activity {
 	 private static final int STOPSPLASH = 0;
 	    //time in milliseconds
 	    private static final long SPLASHTIME = 2000; 

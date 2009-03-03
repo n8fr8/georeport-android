@@ -11,7 +11,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.openideals.inaugreport;
+package com.openideals.greporter;
 
 import java.io.IOException;
 
@@ -29,7 +29,6 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.openideals.android.geo.LocationFinderActivity;
 
 /*
  * This is the user interface activity for the report form

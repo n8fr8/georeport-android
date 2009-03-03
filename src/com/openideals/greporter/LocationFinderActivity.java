@@ -11,7 +11,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.openideals.android.geo;
+package com.openideals.greporter;
 
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
@@ -35,13 +35,6 @@ import android.widget.Toast;
 
 import com.google.android.maps.MapActivity;
 import com.openideals.android.ui.InternalWebView;
-import com.openideals.inaugreport.AudioFormActivity;
-import com.openideals.inaugreport.InaugReportConstants;
-import com.openideals.inaugreport.PersonFormActivity;
-import com.openideals.inaugreport.PhotoFormActivity;
-import com.openideals.inaugreport.R;
-import com.openideals.inaugreport.ReportFormActivity;
-import com.openideals.inaugreport.Reporter;
 
 /*
  * This activity handles finding the users location via GPS or the mobile network
@@ -275,7 +268,7 @@ public class LocationFinderActivity extends MapActivity implements OnClickListen
     {
     	Intent iReportForm = new Intent(this, InternalWebView.class);
         
-    	iReportForm.putExtra("url", InaugReportConstants.REPORT_URL);
+    	iReportForm.putExtra("url", GReporterConstants.REPORTS_VIEW_URL);
     	
         startActivity(iReportForm);
     	
