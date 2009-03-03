@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+      package="com.openideals.inaugreport"
+      android:versionCode="2"
+      android:versionName="1.0.1">
+      
+       <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />    
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.RECORD_AUDIO"/>
+      <uses-permission android:name="android.permission.CAMERA"/>
+   
+    <application android:icon="@drawable/icon" android:label="@string/app_name"  android:debuggable="true">
+        <activity android:name=".InaugReportMainActivity"
+                  android:label="@string/app_name"
+                 
+                  >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        
+         <activity android:name="com.openideals.android.geo.LocationFinderActivity" android:screenOrientation="portrait" android:label="@string/view_location_finder"/>
+        <activity android:name=".ReportFormActivity" android:screenOrientation="landscape" android:label="@string/view_report_form"/>
+         <activity android:name=".PersonFormActivity" android:screenOrientation="landscape" android:label="@string/view_report_form"/>
+         <activity android:name=".AudioFormActivity" android:label="@string/view_audio_form"/>
+          <activity android:name=".PhotoFormActivity" android:label="@string/view_photo_form"/>
+          <activity android:name="com.openideals.android.ui.ImageCaptureActivity" android:screenOrientation="landscape" android:label="@string/internal_camera_view" />
+         <activity android:name="com.openideals.android.ui.InternalWebView" android:label="@string/internal_web_view" />
+          <activity android:name="com.openideals.android.geo.GeoRSSMapView" android:label="@string/geo_map_view" />
+         
+         <uses-library android:name="com.google.android.maps" />
+         
+         
+    </application>
+</manifest> 
