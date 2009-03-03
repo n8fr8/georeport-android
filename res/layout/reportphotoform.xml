@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Demonstrates using a relative layout to create a form -->
+<ScrollView 
+xmlns:android="http://schemas.android.com/apk/res/android" 
+android:id="@+id/scrollReportForm"
+android:layout_width="fill_parent" 
+android:layout_height="fill_parent"
+ android:background="@drawable/bg"
+> 
+
+<LinearLayout
+android:id="@+id/layoutReportForm"
+android:label="Text Report"
+android:layout_width="fill_parent"
+android:layout_height="wrap_content"
+android:orientation="vertical" android:gravity="top" 
+android:padding="6.0sp">
+
+   <TextView android:id="@+id/labelPhotoHeader" 
+              android:layout_width="fill_parent" 
+              android:layout_height="wrap_content" 
+              android:text="Take a photo of something related to the Inauguration, enter a caption and then submit your report..."/>
+  
+  
+<RelativeLayout
+   xmlns:android="http://schemas.android.com/apk/res/android"
+   android:layout_width="fill_parent" android:layout_height="wrap_content"
+   android:padding="10dp" android:layout_marginTop="10px">
+   
+  
+   
+    <TextView android:id="@+id/labelPhotoTitle" 
+              
+              android:layout_height="wrap_content" 
+              android:text="Take a picture: "
+              android:layout_width="125px" 
+              />
+
+  <Button android:id="@+id/btnTakePicture" 
+         
+            android:layout_height="wrap_content" 
+             android:text="Activate Camera"
+             android:layout_margin="5sp"
+ android:layout_width="125px" 
+   android:layout_toRightOf="@+id/labelPhotoTitle"
+            />
+    
+            
+   </RelativeLayout>
+   
+     <TextView android:id="@+id/labelCaption" 
+              android:layout_width="fill_parent" 
+              android:layout_height="wrap_content" 
+              android:text="Enter a caption:"/>
+
+    <EditText android:id="@+id/entryCaption" 
+              android:layout_width="fill_parent" 
+              android:layout_height="wrap_content" 
+              android:background="@android:drawable/editbox_background"
+             />
+  
+
+          
+ <RelativeLayout
+   xmlns:android="http://schemas.android.com/apk/res/android"
+   android:layout_width="fill_parent" android:layout_height="wrap_content"
+   android:padding="10dp" android:layout_marginTop="10px" >
+   			 
+   			 
+   			   <Button android:id="@+id/btnReportFormSubmit" 
+            android:layout_width="125px" 
+            android:layout_height="wrap_content" 
+             android:text="Submit Photo"        
+             android:layout_margin="25sp"
+ 
+            />
+            
+   			 <Button android:id="@+id/btnReportFormCancel" 
+    		android:layout_width="100px" 
+            android:layout_height="wrap_content"
+             android:text="Cancel"   
+             android:layout_toRightOf="@+id/btnReportFormSubmit"
+             android:layout_margin="25sp"
+           />
+
+</RelativeLayout>
+
+  <ImageView android:id="@+id/previewphoto" android:layout_width="wrap_content"
+          android:layout_height="wrap_content" 
+          android:layout_gravity="top"/>
+          
+</LinearLayout>
+</ScrollView>

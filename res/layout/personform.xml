@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Demonstrates using a relative layout to create a form -->
+<ScrollView 
+xmlns:android="http://schemas.android.com/apk/res/android" 
+android:id="@+id/scrollReportForm"
+android:layout_width="fill_parent" 
+android:layout_height="fill_parent"
+android:background="@drawable/bg"
+> 
+
+<LinearLayout
+android:id="@+id/layoutReportForm"
+android:label="Vote Report Form"
+android:layout_width="fill_parent"
+android:layout_height="wrap_content"
+android:orientation="vertical" android:gravity="top" 
+android:padding="6.0sp">
+
+
+<TextView android:id="@+id/labelIntro" 
+              android:layout_width="fill_parent" 
+              android:layout_height="wrap_content" 
+			  android:layout_margin="10sp"
+              android:text="Registration (we'll only ask this once...)"
+              />
+              
+    <TextView android:id="@+id/labelFirstName" 
+              android:layout_width="wrap_content" 
+              android:layout_height="wrap_content" 
+              android:text="First Name"/>
+
+    <EditText android:id="@+id/entryFirstName" 
+              android:layout_width="fill_parent" 
+              android:layout_height="wrap_content" 
+              android:background="@android:drawable/editbox_background"
+             />
+             
+  
+    <TextView android:id="@+id/labelLastName" 
+              android:layout_width="wrap_content" 
+              android:layout_height="wrap_content" 
+             
+              android:text="Last Name"/>
+
+    <EditText android:id="@+id/entryLastName" 
+              android:layout_width="fill_parent" 
+              android:layout_height="wrap_content" 
+              android:background="@android:drawable/editbox_background"
+              />
+  
+  
+	  <TextView android:id="@+id/labelEmail" 
+              android:layout_width="wrap_content" 
+              android:layout_height="wrap_content" 
+             
+               android:text="Email Address"/>
+
+    <EditText android:id="@+id/entryEmail" 
+              android:layout_width="fill_parent" 
+              android:layout_height="wrap_content" 
+              android:background="@android:drawable/editbox_background"
+              />
+	   
+	
+	
+	  <TextView android:id="@+id/labelZip" 
+              android:layout_width="wrap_content" 
+              android:layout_height="wrap_content" 
+      
+              android:text="Zip Code"/>
+
+    <EditText android:id="@+id/entryZip" 
+              android:layout_width="fill_parent" 
+              android:layout_height="wrap_content" 
+              android:background="@android:drawable/editbox_background"
+              />
+		
+         
+                  
+    <RelativeLayout
+   xmlns:android="http://schemas.android.com/apk/res/android"
+   android:layout_width="fill_parent" android:layout_height="wrap_content"
+   android:padding="10dp">
+   
+
+   			
+             <Button android:id="@+id/btnReportFormSubmit" 
+             android:layout_width="wrap_content" 
+            android:layout_height="wrap_content" 
+        android:text="Agree and Continue &gt;&gt;"
+           />
+            
+         
+            
+            
+            </RelativeLayout>
+</LinearLayout>
+</ScrollView>

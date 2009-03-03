@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView 
+xmlns:android="http://schemas.android.com/apk/res/android" 
+android:id="@+id/scrollReportForm"
+android:layout_width="fill_parent" 
+android:layout_height="fill_parent"
+ android:background="@drawable/splash"> 
+<LinearLayout 
+     android:orientation="vertical" android:layout_width="fill_parent"
+     android:layout_height="wrap_content" android:paddingTop="150px">
+    
+             <TextView android:id="@+id/labelFindLocation" 
+              android:layout_width="wrap_content" 
+              android:layout_height="wrap_content" 
+			android:textColor="#ffffff"
+		android:padding="5sp"
+			 android:layout_gravity="center"
+              android:text=""/>
+              
+              
+           <Button android:id="@+id/btnSubmitAudio" 
+            android:layout_width="wrap_content" 
+            android:layout_height="wrap_content" 
+            android:layout_alignParentRight="true"
+         	 android:layout_gravity="center"
+        android:text="Record &amp; Submit Audio Report"
+            android:padding="10sp"
+             />
+            
+            <Button android:id="@+id/btnSubmitPhoto" 
+            android:layout_width="wrap_content" 
+            android:layout_height="wrap_content" 
+            android:layout_alignParentRight="true"
+         	 android:layout_gravity="center"
+          android:text="Take &amp; Submit Photo Report"
+             android:padding="10sp"
+               android:layout_marginTop="10sp"
+               />
+           
+              
+             <Button android:id="@+id/btnSubmitText" 
+            android:layout_width="wrap_content" 
+            android:layout_height="wrap_content" 
+            android:layout_alignParentRight="true"
+         	 android:layout_gravity="center"
+            android:text="Submit Text Report"
+              android:padding="10sp"
+                android:layout_marginTop="10sp" />
+            
+            
+</LinearLayout> 
+</ScrollView>

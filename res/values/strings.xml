@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">gReporter</string>
+    <string name="hello">gReporter :: http://openideals.com/gr</string>
+	<string name="view_location_finder">gR :: Find Your Location</string>
+	<string name="view_report_form">gR :: Text Report Form</string>
+	<string name="view_audio_form">gR :: Audio Report Form</string>
+	<string name="view_photo_form">gR :: Photo Report Form</string>
+	<string name="internal_web_view">gR :: Web View</string>
+	<string name="geo_map_view">gR :: Map View</string>
+	<string name="splash_msg">Map your story!</string>
+	<string name="internal_camera_view">gR :: Camera View</string>
+	
+</resources>

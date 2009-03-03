@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Demonstrates using a relative layout to create a form -->
+<ScrollView 
+xmlns:android="http://schemas.android.com/apk/res/android" 
+android:id="@+id/scrollReportForm"
+android:layout_width="fill_parent" 
+android:layout_height="fill_parent"
+ android:background="@drawable/bg"
+> 
+
+<LinearLayout
+android:id="@+id/layoutReportForm"
+android:label="Text Report"
+android:layout_width="fill_parent"
+android:layout_height="wrap_content"
+android:orientation="vertical" android:gravity="top" 
+android:padding="6.0sp">
+
+  <TextView android:id="@+id/labelPhotoHeader" 
+              android:layout_width="fill_parent" 
+              android:layout_height="wrap_content" 
+              android:text="Interview yourself or someone about the Inauguration, listen back to it, and then submit your report..."/>
+  
+ <RelativeLayout
+   xmlns:android="http://schemas.android.com/apk/res/android"
+   android:layout_width="fill_parent" android:layout_height="wrap_content"
+   android:padding="10dp" android:layout_marginTop="10px">
+   
+    <TextView android:id="@+id/labelAudioTitle" 
+              
+              android:layout_height="wrap_content" 
+              android:text="Record your audio:"
+              android:layout_width="100px" 
+              />
+
+  <Button android:id="@+id/btnRecordAudio" 
+         
+            android:layout_height="wrap_content"       
+             android:layout_margin="5sp"
+ android:layout_width="75px" 
+   android:layout_toRightOf="@+id/labelAudioTitle"
+   android:text="Record"
+            />
+      <Button android:id="@+id/btnPlayAudio" 
+           
+            android:layout_height="wrap_content"    
+             android:layout_margin="5sp"
+ android:layout_width="75px" 
+   android:layout_toRightOf="@+id/btnRecordAudio"
+   android:text="Play"
+            />
+            
+   </RelativeLayout>
+  
+      <TextView android:id="@+id/labelAudioStatus" 
+              android:layout_width="fill_parent" 
+              android:layout_height="wrap_content" 
+              android:gravity="center"
+              android:text="Status: Not Recording"
+              android:background="#ffffff"
+              android:textColor="#ff0000"
+              android:fadingEdge="horizontal"
+              android:layout_margin="10px"/>
+  
+  
+   <TextView android:id="@+id/labelAudioTitle" 
+              
+              android:layout_height="wrap_content" 
+              android:text="When you are satisfied your recording, press [submit] below."
+              android:layout_width="fill_parent" 
+              android_layout_marginTop="50px"
+              />
+  
+ <RelativeLayout
+   xmlns:android="http://schemas.android.com/apk/res/android"
+   android:layout_width="fill_parent" android:layout_height="wrap_content"
+   android:padding="10dp" android:layout_marginTop="10px" >
+   			 
+   			 
+   			   <Button android:id="@+id/btnReportFormSubmit" 
+            android:layout_width="125px" 
+            android:layout_height="wrap_content" 
+             android:text="Submit Audio"        
+             android:layout_margin="25sp"
+            />
+            
+   			 <Button android:id="@+id/btnReportFormCancel" 
+    		android:layout_width="100px" 
+            android:layout_height="wrap_content"
+             android:text="Cancel"   
+             android:layout_toRightOf="@+id/btnReportFormSubmit"
+             android:layout_margin="25sp"
+           />
+            
+           
+
+</RelativeLayout>
+
+</LinearLayout>
+</ScrollView>
