@@ -109,7 +109,7 @@ public class ReportFormActivity extends Activity implements OnClickListener, Run
  	       
  	       if (reportAccepted)
  	       {
- 	    	   Toast.makeText(getBaseContext(), "Thank you. Your report has been accepted and will be displayed on http://inaugurationreport.com", Toast.LENGTH_LONG).show();
+ 	    	   Toast.makeText(getBaseContext(), "Thank you. Your report has been accepted!", Toast.LENGTH_LONG).show();
 
  	    	   showMain();
  	    	   

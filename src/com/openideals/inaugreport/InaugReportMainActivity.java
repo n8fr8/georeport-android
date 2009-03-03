@@ -67,7 +67,7 @@ public class InaugReportMainActivity extends Activity {
 
 	       setContentView(R.layout.splash);
 	       
-	      splash = (ImageView) findViewById(R.id.splashscreen);
+	    // splash = (ImageView) findViewById(R.id.splashscreen);
 	     
 	      Message msg = new Message();
 	      msg.what = STOPSPLASH;

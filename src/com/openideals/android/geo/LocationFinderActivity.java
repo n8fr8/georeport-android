@@ -289,6 +289,11 @@ public class LocationFinderActivity extends MapActivity implements OnClickListen
         MenuItem mItem = menu.add(0, 1, Menu.NONE, "Credits");
         MenuItem mItem2 = menu.add(0, 2, Menu.NONE, "Register");
        MenuItem mItem3 = menu.add(0, 3, Menu.NONE, "View Reports");
+       
+       mItem.setIcon(R.drawable.ic_menu_about);
+       mItem2.setIcon(R.drawable.ic_menu_register);
+       mItem3.setIcon(R.drawable.ic_menu_reports);
+       
         return true;
     }
 	
@@ -317,7 +322,7 @@ public class LocationFinderActivity extends MapActivity implements OnClickListen
     
     private void showCredits ()
     {
-    	String credits = "Application:\nNathan Freitas (nathan@freitas.net)\nhttp://openideals.com\n\nGraphics:\nBen Kutil\nChris Reichart";
+    	String credits = "Application:\nNathan Freitas (nathan@freitas.net)\nhttp://openideals.com";
     	
     	Toast toast = Toast.makeText(getBaseContext(), credits, Toast.LENGTH_LONG);
     	toast.show();
