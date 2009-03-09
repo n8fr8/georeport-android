@@ -66,8 +66,6 @@ public class LocationFinderActivity extends MapActivity implements OnClickListen
     	setTheme(android.R.style.Theme_Black_NoTitleBar);
     	showLocationForm();
     	
-    //	showMap ();
-    	
     	if (currentLocation == null && lm == null)
     	{
 	        Handler handle = new Handler();
@@ -161,26 +159,15 @@ public class LocationFinderActivity extends MapActivity implements OnClickListen
     		  
     		  if (loc != null)
     		  {
-		    String latlon =  "Lat:" + loc.getLatitude() + 
-		     "Lon:" + loc.getLongitude();
+    			  String latlon =  "Lat:" + (loc.getLatitude()) + 
+    			  " Lon:" + (loc.getLongitude());
 		    	
-		       //     currentLocation = loc;
-		            
-		          
-		            //	currentLocationName = Reporter.getLocationName(currentLocation);
-		
-		        //   String locText = "You are at: " + latlon;
+		          String locText = "You are at: " + latlon;
 		            	
-		       //      Toast.makeText(getBaseContext(), locText, Toast.LENGTH_SHORT).show();
+		          Toast.makeText(getBaseContext(), locText, Toast.LENGTH_SHORT).show();
 		                
 		           
-		          //  if (txtLocation != null)
-		           // txtLocation.setText(locText);
-		        
-		            
-		           // showLocationForm();
-		       
-		            Reporter.setLocation(loc);
+		          Reporter.setLocation(loc);
     		  }
           }
           catch (Exception ioe)

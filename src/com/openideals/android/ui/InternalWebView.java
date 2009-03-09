@@ -27,8 +27,9 @@ import android.webkit.WebChromeClient;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 
-import com.openideals.android.geo.LocationFinderActivity;
-import com.openideals.inaugreport.R;
+import com.openideals.greporter.LocationFinderActivity;
+import com.openideals.greporter.R;
+
 
 /*
  * Simple view for embedding a browser into your application

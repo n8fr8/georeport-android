@@ -21,7 +21,7 @@ android:padding="6.0sp">
               android:layout_width="fill_parent" 
               android:layout_height="wrap_content" 
 			  android:layout_margin="10sp"
-              android:text="Registration (we'll only ask this once...)"
+              android:text="Configure the settings"
               />
               
     <TextView android:id="@+id/labelFirstName" 
@@ -61,21 +61,32 @@ android:padding="6.0sp">
               android:background="@android:drawable/editbox_background"
               />
 	   
-	
-	
-	  <TextView android:id="@+id/labelZip" 
+	 
+	  <TextView android:id="@+id/labelSubmitUtl" 
               android:layout_width="wrap_content" 
               android:layout_height="wrap_content" 
-      
-              android:text="Zip Code"/>
+             
+               android:text="Report Submit Address (http://)"/>
 
-    <EditText android:id="@+id/entryZip" 
+    <EditText android:id="@+id/entrySubmitUrl" 
               android:layout_width="fill_parent" 
               android:layout_height="wrap_content" 
               android:background="@android:drawable/editbox_background"
               />
-		
-         
+              
+               
+	  <TextView android:id="@+id/labelViewUrl" 
+              android:layout_width="wrap_content" 
+              android:layout_height="wrap_content" 
+             
+               android:text="Report View Address (http://)"/>
+
+    <EditText android:id="@+id/entryViewUrl" 
+              android:layout_width="fill_parent" 
+              android:layout_height="wrap_content" 
+              android:background="@android:drawable/editbox_background"
+              />
+	
                   
     <RelativeLayout
    xmlns:android="http://schemas.android.com/apk/res/android"
@@ -87,7 +98,7 @@ android:padding="6.0sp">
              <Button android:id="@+id/btnReportFormSubmit" 
              android:layout_width="wrap_content" 
             android:layout_height="wrap_content" 
-        android:text="Agree and Continue &gt;&gt;"
+        android:text="Save Settings"
            />
             
          

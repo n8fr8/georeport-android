@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-      package="com.openideals.inaugreport"
+      package="com.openideals.greporter"
       android:versionCode="2"
       android:versionName="1.0.1">
       
@@ -12,7 +12,7 @@
       <uses-permission android:name="android.permission.CAMERA"/>
    
     <application android:icon="@drawable/icon" android:label="@string/app_name"  android:debuggable="true">
-        <activity android:name=".InaugReportMainActivity"
+        <activity android:name=".GReporterMainActivity"
                   android:label="@string/app_name"
                  
                   >
@@ -22,7 +22,7 @@
             </intent-filter>
         </activity>
         
-         <activity android:name="com.openideals.android.geo.LocationFinderActivity" android:screenOrientation="portrait" android:label="@string/view_location_finder"/>
+         <activity android:name=".LocationFinderActivity" android:screenOrientation="portrait" android:label="@string/view_location_finder"/>
         <activity android:name=".ReportFormActivity" android:screenOrientation="landscape" android:label="@string/view_report_form"/>
          <activity android:name=".PersonFormActivity" android:screenOrientation="landscape" android:label="@string/view_report_form"/>
          <activity android:name=".AudioFormActivity" android:label="@string/view_audio_form"/>
