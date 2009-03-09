@@ -57,10 +57,13 @@ public class PersonFormActivity extends Activity implements OnClickListener
       if (prefDB.getPref("firstname")!=null)
       {
     	  
-    	  ((TextView)findViewById(R.id.entryFirstName)).setText(prefDB.getPref("firstname"));
-    	  ((TextView)findViewById(R.id.entryLastName)).setText(prefDB.getPref("lastname"));
-    	  ((TextView)findViewById(R.id.entryEmail)).setText(prefDB.getPref("email"));
-    	  ((TextView)findViewById(R.id.entryZip)).setText(prefDB.getPref("zip"));
+    	  ((TextView)findViewById(R.id.entryFirstName)).setText(prefDB.getPref(GReporterConstants.PREFKEY_PERSON_FIRSTNAME));
+    	  ((TextView)findViewById(R.id.entryLastName)).setText(prefDB.getPref(GReporterConstants.PREFKEY_PERSON_LASTNAME));
+    	  ((TextView)findViewById(R.id.entryEmail)).setText(prefDB.getPref(GReporterConstants.PREFKEY_PERSON_EMAIL));
+    	
+    	  
+    	  ((TextView)findViewById(R.id.entrySubmitUrl)).setText(prefDB.getPref(GReporterConstants.PREFKEY_REPORT_SUBMIT_URL));
+    	  ((TextView)findViewById(R.id.entryViewUrl)).setText(prefDB.getPref(GReporterConstants.PREFKEY_REPORT_DISPLAY_URL));
     	  
     	   
       }
@@ -78,16 +81,23 @@ public class PersonFormActivity extends Activity implements OnClickListener
 	 	      String firstname = ((TextView)findViewById(R.id.entryFirstName)).getText().toString();
 	 	     String lastname = ((TextView)findViewById(R.id.entryLastName)).getText().toString();
 	 	    String email = ((TextView)findViewById(R.id.entryEmail)).getText().toString();
-	 	   String zip = ((TextView)findViewById(R.id.entryZip)).getText().toString();
-	 	       
-			Reporter.setPerson(firstname, lastname, email, zip);
-			
+	 	
+	 	   String submitUrl = ((TextView)findViewById(R.id.entrySubmitUrl)).getText().toString();
+	 	  String displayUrl = ((TextView)findViewById(R.id.entryViewUrl)).getText().toString();
+		 	
+		
 			PreferenceDB prefDB = PreferenceDB.getInstance (this);
 			
-			prefDB.insertPref("firstname", firstname);
-			prefDB.insertPref("lastname", lastname);
-			prefDB.insertPref("email", email);
-			prefDB.insertPref("zip", zip);
+			prefDB.insertPref(GReporterConstants.PREFKEY_PERSON_FIRSTNAME, firstname);
+			prefDB.insertPref(GReporterConstants.PREFKEY_PERSON_LASTNAME, lastname);
+			prefDB.insertPref(GReporterConstants.PREFKEY_PERSON_EMAIL, email);
+			prefDB.insertPref(GReporterConstants.PREFKEY_REPORT_SUBMIT_URL, submitUrl);
+			prefDB.insertPref(GReporterConstants.PREFKEY_REPORT_DISPLAY_URL, displayUrl);
+			
+			
+			Reporter.setReportSubmitUrl(submitUrl);
+			
+	 	     
 		}
 		else if (v.getId()==R.id.btnReportFormCancel)
 		{

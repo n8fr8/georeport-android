@@ -55,7 +55,10 @@ public class GReporterMainActivity extends Activity {
 	   {
 		   PreferenceDB prefDB = PreferenceDB.getInstance(this);
 		   
-		   Reporter.setPerson(prefDB.getPref("firstname"), prefDB.getPref("lastname"), prefDB.getPref("email"), prefDB.getPref("zip"));
+		   Reporter.setPerson(
+				   prefDB.getPref(GReporterConstants.PREFKEY_PERSON_FIRSTNAME), 
+				   prefDB.getPref(GReporterConstants.PREFKEY_PERSON_LASTNAME), 
+				   prefDB.getPref(GReporterConstants.PREFKEY_PERSON_EMAIL));
 	   }
 	   
 	   /** Called when the activity is first created. */

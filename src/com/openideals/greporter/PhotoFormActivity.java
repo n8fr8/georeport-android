@@ -30,6 +30,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.openideals.android.db.PreferenceDB;
 import com.openideals.android.ui.ImageCaptureActivity;
 
 /*

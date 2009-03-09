@@ -23,6 +23,7 @@ import android.location.Location;
 import android.os.Handler;
 import android.util.Log;
 
+import com.openideals.android.db.PreferenceDB;
 import com.openideals.android.net.HttpManager;
 
 
@@ -31,12 +32,28 @@ import com.openideals.android.net.HttpManager;
  */
 public class Reporter implements GReporterConstants, Runnable
 {
+	/**
+	 * @return the reportSubmitUrl
+	 */
+	public static String getReportSubmitUrl() {
+		return reportSubmitUrl;
+	}
+
+	/**
+	 * @param reportSubmitUrl the reportSubmitUrl to set
+	 */
+	public static void setReportSubmitUrl(String reportSubmitUrl) {
+		Reporter.reportSubmitUrl = reportSubmitUrl;
+	}
+
 	private final static String TAG = "Reporter";
 	
 	private static String deviceGuid = null;
 	
 	private static Location location = null;
 
+	private static String reportSubmitUrl = null;
+	
 	/**
 	 * @return the location
 	 */
@@ -93,14 +110,14 @@ public class Reporter implements GReporterConstants, Runnable
 	
 	private static Person person = null;
 	
-	public static void setPerson (String firstname, String lastname, String email, String zip)
+	public static void setPerson (String firstname, String lastname, String email)
 	{
 		   person = new Person ();
 	       
 	       person.firstname = firstname;
 	       person.lastname = lastname;
 	       person.email = email;
-	       person.zip = zip;
+	    
 	}
 	
 	public static Person getPerson ()
@@ -180,7 +197,7 @@ public class Reporter implements GReporterConstants, Runnable
 	      
 	     Person person = getPerson();
 	       
-		String url = GReporterConstants.REPORT_SUBMIT_URL;
+		
 		
 		NumberFormat f = NumberFormat.getInstance();
 		 if (f instanceof DecimalFormat) {
@@ -213,7 +230,7 @@ public class Reporter implements GReporterConstants, Runnable
 		{
 			try
 			{
-				response = HttpManager.doPost (url, props);
+				response = HttpManager.doPost (reportSubmitUrl, props);
 				Log.i(TAG,"submitReport response: " + response);
 			
 			}
@@ -227,7 +244,7 @@ public class Reporter implements GReporterConstants, Runnable
 			try
 			{
 				
-				response = HttpManager.uploadFile(url, props, filename, file);
+				response = HttpManager.uploadFile(reportSubmitUrl, props, filename, file);
 				Log.i(TAG,"submitReport response: " + response);
 			
 				 File file = new File(this.file);

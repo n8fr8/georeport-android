@@ -34,6 +34,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.maps.MapActivity;
+import com.openideals.android.db.PreferenceDB;
 import com.openideals.android.ui.InternalWebView;
 
 /*
@@ -267,8 +268,10 @@ public class LocationFinderActivity extends MapActivity implements OnClickListen
     private void showWebView ()
     {
     	Intent iReportForm = new Intent(this, InternalWebView.class);
-        
-    	iReportForm.putExtra("url", GReporterConstants.REPORTS_VIEW_URL);
+    	
+    	String reportDisplayUrl = PreferenceDB.getInstance(this).getPref(GReporterConstants.PREFKEY_REPORT_DISPLAY_URL);
+    	
+    	iReportForm.putExtra("url", reportDisplayUrl);
     	
         startActivity(iReportForm);
     	
@@ -279,9 +282,9 @@ public class LocationFinderActivity extends MapActivity implements OnClickListen
 	public boolean onCreateOptionsMenu(Menu menu) {
         super.onCreateOptionsMenu(menu);
         
-        MenuItem mItem = menu.add(0, 1, Menu.NONE, "Credits");
-        MenuItem mItem2 = menu.add(0, 2, Menu.NONE, "Register");
-       MenuItem mItem3 = menu.add(0, 3, Menu.NONE, "View Reports");
+        MenuItem mItem = menu.add(0, 1, Menu.NONE, "About");
+        MenuItem mItem2 = menu.add(0, 2, Menu.NONE, "Settings");
+       MenuItem mItem3 = menu.add(0, 3, Menu.NONE, "Reports");
        
        mItem.setIcon(R.drawable.ic_menu_about);
        mItem2.setIcon(R.drawable.ic_menu_register);
